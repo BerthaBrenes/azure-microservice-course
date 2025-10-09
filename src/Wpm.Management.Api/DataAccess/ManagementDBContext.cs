@@ -22,6 +22,7 @@ public class ManagementDBContext(DbContextOptions<ManagementDBContext> options):
             new Pet { Id = 1, Name = "Buddy", Age = 3, BreedId = 1 },
             new Pet { Id = 2, Name = "Kirara", Age = 2, BreedId = 3 },
             new Pet { Id = 3, Name = "Bob", Age = 4, BreedId = 2 },
+            new Pet { Id = 3, Name = "Snoopy", Age = 50, BreedId = 5 },
             ]
         );
     }
