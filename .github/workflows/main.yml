@@ -31,7 +31,7 @@ jobs:
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:${{env.DATE}}-${{github.run_number}}
 
       - name: Deploy to Container Apps
-        uses: azure/container-app-deploy-action@v2
+        uses: azure/container-apps-deploy-action@v2
         with:
             acrName: ${{ secrets.ACR_USERNAME }}
             acrUsername: ${{ secrets.ACR_USERNAME }}
