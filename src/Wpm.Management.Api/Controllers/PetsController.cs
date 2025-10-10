@@ -29,13 +29,30 @@ public class PetsController(ManagementDBContext dbContext, ILogger<PetsControlle
         return Ok(pet);
     }
     [HttpPost]
-
     public async Task<IActionResult> CreatePet(NewPet pet)
     {
         var newPet = pet.ToPet();
         await dbContext.Pets.AddAsync(newPet);
         await dbContext.SaveChangesAsync();
         return CreatedAtRoute(nameof(GetPetById), new { id = newPet.Id }, pet);
+    }
+
+    [HttpPost("{id}")]
+    public async Task<IActionResult> ModifyPet(int id, NewPet pet)
+    {
+        var existingPet = await dbContext.Pets.FindAsync(id);
+        if (existingPet == null)
+        {
+            logger.LogError("Pet not found");
+            return NotFound();
+        }
+
+        existingPet.Name = pet.Name;
+        existingPet.Age = pet.Age;
+        existingPet.BreedId = pet.BreedId;
+
+        await dbContext.SaveChangesAsync();
+        return Ok(existingPet);
     }
 }
 public record NewPet(string Name, int Age, int BreedId)

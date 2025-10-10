@@ -12,6 +12,9 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Wpm.Management.Api", Version = "v1" });
 });
+// Add memory cache
+builder.Services.AddMemoryCache();
+// Configure DB context
 builder.Services.AddDbContext<ManagementDBContext>(options =>
 {
     options.UseInMemoryDatabase("WpmManagement");
