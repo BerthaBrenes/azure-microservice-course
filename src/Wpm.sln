@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpm.Management.Api", "Wpm.Management.Api\Wpm.Management.Api.csproj", "{D5B1BDAD-771F-4CCC-B070-CC17B3C66251}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpm.Clinic", "Wpm.Clinic\Wpm.Clinic.csproj", "{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,23 @@ Global
 		{D5B1BDAD-771F-4CCC-B070-CC17B3C66251}.Release|x64.Build.0 = Release|Any CPU
 		{D5B1BDAD-771F-4CCC-B070-CC17B3C66251}.Release|x86.ActiveCfg = Release|Any CPU
 		{D5B1BDAD-771F-4CCC-B070-CC17B3C66251}.Release|x86.Build.0 = Release|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Debug|x64.Build.0 = Debug|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Release|x64.ActiveCfg = Release|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Release|x64.Build.0 = Release|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E9ED7C0-9D20-48FA-84F5-C185D04F5D9C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12EFED34-AA6A-4CFF-8307-640FE2CE588F}
 	EndGlobalSection
 EndGlobal

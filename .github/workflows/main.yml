@@ -3,7 +3,7 @@ name: Wpm
 on:
   push:
     branches:
-      - main
+      - dev2
 
 jobs:
   build:
@@ -25,12 +25,17 @@ jobs:
       - name: Get current date in yymmdd format
         run: echo "DATE=$(date +'%y%m%d')" >> $GITHUB_ENV
 
-      - name: 'Build and push Docker image'
+      - name: 'Build and push Management container image'
         run: |
           docker build src -f src/Wpm.Management.Api/Dockerfile -t ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:${{env.DATE}}-${{github.run_number}}
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:${{env.DATE}}-${{github.run_number}}
 
-      - name: Deploy to Container Apps
+      - name: 'Build and push Clinic container image'
+        run: |
+          docker build src -f src/Wpm.Clinic/Dockerfile -t ${{ secrets.ACR_LOGIN_SERVER }}/wpm-clinic-api:${{env.DATE}}-${{github.run_number}}
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/wpm-clinic-api:${{env.DATE}}-${{github.run_number}}
+
+      - name: Deploy Management API to Container Apps
         uses: azure/container-apps-deploy-action@v2
         with:
             acrName: ${{ secrets.ACR_USERNAME }}
@@ -39,4 +44,15 @@ jobs:
             containerAppName: wpm-management
             resourceGroup: wpm
             imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:${{env.DATE}}-${{github.run_number}}
+            enviromentVariable: Logging__LogLevel__Microsoft.EntityFrameworkCore=Debug
+
+      - name: Deploy Clinic API to Container Apps
+        uses: azure/container-apps-deploy-action@v2
+        with:
+            acrName: ${{ secrets.ACR_USERNAME }}
+            acrUsername: ${{ secrets.ACR_USERNAME }}
+            acrPassword: ${{ secrets.ACR_PASSWORD }}
+            containerAppName: wpm-clinic
+            resourceGroup: wpm
+            imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/wpm-clinic-api:${{env.DATE}}-${{github.run_number}}
             enviromentVariable: Logging__LogLevel__Microsoft.EntityFrameworkCore=Debug

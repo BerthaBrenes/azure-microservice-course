@@ -10,6 +10,7 @@ public class ManagementDBContext(DbContextOptions<ManagementDBContext> options):
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Breed>().HasData(
             new Breed(1, "Labrador"),
             new Breed(2, "German Shepherd"),
@@ -22,7 +23,7 @@ public class ManagementDBContext(DbContextOptions<ManagementDBContext> options):
             new Pet { Id = 1, Name = "Buddy", Age = 3, BreedId = 1 },
             new Pet { Id = 2, Name = "Kirara", Age = 2, BreedId = 3 },
             new Pet { Id = 3, Name = "Bob", Age = 4, BreedId = 2 },
-            new Pet { Id = 3, Name = "Snoopy", Age = 50, BreedId = 5 },
+            new Pet { Id = 4, Name = "Snoopy", Age = 50, BreedId = 5 },
             ]
         );
     }
