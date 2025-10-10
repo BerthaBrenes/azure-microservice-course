@@ -14,6 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMemoryCache();
+
 // Add service scoope
 builder.Services.AddScoped<ManagementService>();
 builder.Services.AddScoped<ClinicApplicationService>();
